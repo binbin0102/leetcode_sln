@@ -1,13 +1,18 @@
 
-#include <string>
+//https://leetcode.com/problems/hamming-distance/description/
 
-//https://leetcode.com/problems/reverse-string/description/
-
-using namespace std;
-class Solution461 {
+class Solution {
 public:
-	string reverseString(string s) {
-		std::reverse(s.begin(), s.end());
-		return s;
+	int hammingDistance(int x, int y) {
+
+		int value = (x^y);
+
+		int count = 0;
+		while (value != 0)
+		{
+			count++;
+			value = (value & (value - 1));
+		}
+		return count;
 	}
 };
